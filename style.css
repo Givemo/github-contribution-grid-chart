@@ -1,0 +1,131 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
+    sans-serif, Apple Color Emoji, Segoe UI Emoji;
+}
+.container {
+  width: 850px;
+  line-height: 0;
+  border: 1px solid #ddd;
+  padding: 30px 15px 40px 15px;
+  border-radius: 5px 5px 0px 0px;
+  opacity: 0.7;
+  font-size: 11px;
+}
+
+.grid {
+  width: 11px;
+  height: 11px;
+  margin: 1.5px;
+  border-radius: 2px;
+  border: 1px solid #ddd;
+  position: relative;
+}
+
+/* Tooltip container */
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 200px;
+  font-size: 12px;
+  background-color: black;
+  word-wrap: none;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  border-radius: 6px;
+  bottom: 100%;
+  left: 8%;
+  margin-left: -60px; /* Use half of the width (120/2 = 60), to center the tooltip */
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 0.7;
+}
+
+.tooltip .tooltiptext::after {
+  content: " ";
+  position: absolute;
+  top: 100%; /* At the bottom of the tooltip */
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+.month-container {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 2em;
+  width: 850px;
+}
+
+.key-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  left: 820px;
+  top: 415px;
+}
+
+.key {
+  width: 11px;
+  height: 11px;
+  margin: 1.5px;
+  border-radius: 2px;
+  border: 1px solid #ddd;
+}
+
+#key-text1 {
+  margin-right: 8px;
+}
+
+#key-text2 {
+  margin-left: 8px;
+}
+
+#key1 {
+  background-color: #ebedf0;
+}
+
+#key2 {
+  background-color: #9be9a8;
+}
+#key3 {
+  background-color: #40c463;
+}
+#key4 {
+  background-color: #30a14e;
+}
+#key5 {
+  background-color: #216e39;
+}
+
+.link {
+  top: 424px;
+  position: absolute;
+}
+
+.link a {
+  text-decoration: none;
+}
+
+.link a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
