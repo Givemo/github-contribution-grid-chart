@@ -1,16 +1,20 @@
 body {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  width: auto;
+  margin: auto;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
     sans-serif, Apple Color Emoji, Segoe UI Emoji;
 }
+
 .container {
   width: 850px;
   line-height: 0;
   border: 1px solid #ddd;
-  padding: 30px 15px 40px 15px;
+  padding: 30px 15px 50px 15px;
   border-radius: 5px 5px 0px 0px;
   opacity: 0.7;
   font-size: 11px;
@@ -35,19 +39,22 @@ body {
 .tooltip .tooltiptext {
   visibility: hidden;
   width: 200px;
+  height: 20px;
+  text-align: center;
   font-size: 12px;
   background-color: black;
   word-wrap: none;
   color: #fff;
   text-align: center;
-  padding: 10px;
+  padding: 20px 5px 5px 5px;
   border-radius: 6px;
   bottom: 100%;
   left: 8%;
   margin-left: -60px; /* Use half of the width (120/2 = 60), to center the tooltip */
-  /* Position the tooltip text - see examples below! */
+  margin-bottom: 25px;
   position: absolute;
   z-index: 1;
+  color: #fff;
 }
 
 /* Show the tooltip text when you mouse over the tooltip container */
@@ -60,9 +67,9 @@ body {
   content: " ";
   position: absolute;
   top: 100%; /* At the bottom of the tooltip */
-  left: 50%;
+  left: 30%;
   margin-left: -5px;
-  border-width: 5px;
+  border-width: 6px;
   border-style: solid;
   border-color: black transparent transparent transparent;
 }
@@ -78,9 +85,7 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  position: absolute;
-  left: 820px;
-  top: 415px;
+  margin-right: 30px;
 }
 
 .key {
@@ -116,11 +121,6 @@ body {
   background-color: #216e39;
 }
 
-.link {
-  top: 424px;
-  position: absolute;
-}
-
 .link a {
   text-decoration: none;
 }
@@ -128,4 +128,58 @@ body {
 .link a:hover {
   text-decoration: underline;
   cursor: pointer;
+}
+
+.bottom-container {
+  width: 850px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  top: 415px;
+  margin-top: 0px;
+}
+
+.contribution-summary {
+  margin-bottom: 10px;
+}
+
+/* Styling Social Links*/
+
+.social-links {
+  display: flex;
+  justify-content: space-around;
+  width: 850px;
+  position: absolute;
+  top: 500px;
+  font-size: 1.3rem;
+  transition: background-position 275ms ease;
+}
+
+.social-links a {
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  font-size: 1.3em;
+  font-weight: 400;
+  color: rgb(151, 172, 235);
+  overflow: hidden;
+  background: linear-gradient(
+    to right,
+    midnightblue,
+    midnightblue 50%,
+    royalblue 50%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+  background-position: 100%;
+  transition: background-position 275ms ease;
+  text-decoration: none;
+}
+
+.social-links a:hover {
+  background-position: 0 100%;
+  border-bottom: solid 5px royalblue;
 }

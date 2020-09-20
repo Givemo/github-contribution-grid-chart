@@ -1,4 +1,5 @@
 let container = document.querySelector(".container");
+let total = document.querySelector(".amount");
 // Format Dates
 let date = new Date().toDateString();
 
@@ -9,9 +10,7 @@ function makegrid(rows = 53, columns = 7) {
   for (c = 0; c < rows * columns; c += 1) {
     const grid = document.createElement("div");
     const span = document.createElement("span");
-    const div = document.createElement("div");
     grid.appendChild(span).className = "tooltiptext";
-    grid.appendChild(div).className = "number";
     container.appendChild(grid).className = "grid tooltip";
   }
 }
@@ -19,59 +18,73 @@ makegrid(7, 53);
 
 let toolTipText = document.querySelectorAll(".tooltiptext");
 let number = document.querySelectorAll(".number");
+let grid = document.querySelectorAll(".grid");
+toolTipText.innerHTML = "hghg";
 
-function contributionIncrease() {
-  let value = Number(number.value);
-  value = isNaN(value) ? 0 : value;
-  value += 1;
-  number.value = value;
-  number.innerHTML = value;
-}
-
-function displayContribution() {
-  if (number.innerHTML === "") {
-    toolTipText.innerHTML = `No contributions on ${date}`;
-    console.log(number.innerHTML);
-  } else {
-    let value = Number(number.value);
-    toolTipText.innerHTML = `${value} contributions on ${date}`;
-  }
-}
-
-grid = document.querySelectorAll(".grid");
-grid.forEach((cell) => {
-  cell.addEventListener("mouseover", displayContribution);
-});
-
-grid.forEach((cell) => {
-  cell.addEventListener("click", (e) => {
-    let gridStyle = e.target.style;
-    let value = Number(number.value);
-    contributionIncrease();
-    console.log(number.value);
-
-    if (value === 1) {
-      gridStyle.backgroundColor = "#EBEDF0";
-    } else if (value === 2) {
-      gridStyle.backgroundColor = "#9BE9A8";
-    } else if (value === 3) {
-      gridStyle.backgroundColor = "#40C463";
-    } else if (value === 4) {
-      gridStyle.backgroundColor = "#30A14E";
-    } else if (value >= 5) {
-      gridStyle.backgroundColor = "#216E39";
-    } else {
-      gridStyle.backgroundColor = "#ebedf0";
+grid.forEach((val) => {
+  val.style.backgroundColor = "#ddd";
+  let count = 0;
+  val.addEventListener("mouseover", (e) => {
+    let item = e.target;
+    count = "No";
+    if (val.style.backgroundColor === "rgb(221, 221, 221)") {
+      item.firstChild.innerHTML = `${count} contributions on ${date}`;
+    } else if (val.style.backgroundColor === "rgb(235, 237, 240)") {
+      item.firstChild.innerHTML = `1 contributions on ${date}`;
+    } else if (val.style.backgroundColor === "rgb(155, 233, 168)") {
+      item.firstChild.innerHTML = `2 contributions on ${date}`;
     }
   });
 });
 
+grid.forEach((cell) => {
+  let count = 0;
+  cell.addEventListener("click", (e) => {
+    ++count;
+    let gridStyle = e.target;
+    //toolTipText.innerHTML = `${count} contributions ${date}`;
+
+    total.innerHTML = count++;
+    gridStyle.firstChild.innerHTML = `${count} contributions ${date}`;
+
+    gridStyle.style.backgroundColor = getRandomColor();
+    console.log(gridStyle.style.backgroundColor);
+    gridStyle.firstChild.style.backgroundColor = "black";
+    /*if (
+      gridStyle.className === "toolTipText" ||
+      gridStyle.className === "number"
+    ) {
+      return;
+    } else if (value === 1) {
+      gridStyle.style.backgroundColor = gridObject.color;
+    } else if (value === 2) {
+      gridStyle.style.backgroundColor = "#9BE9A8";
+    } else if (value === 3) {
+      gridStyle.style.backgroundColor = "#40C463";
+    } else if (value === 4) {
+      gridStyle.style.backgroundColor = "#30A14E";
+    } else if (value >= 5) {
+      gridStyle.style.backgroundColor = "#216E39";
+    }*/
+  });
+});
+
 //toolTipText.innerHTML = `${Number(value) + 1} contributions on ${date}`;
-/*
+
 let addContribution = (function () {
   let colors = ["#EBEDF0", "#9BE9A8", "#40C463", "#30A14E", "#216E39"];
-
   return function (i) {
     return colors[i];
   };
-})();*/
+})();
+
+function getRandomColor() {
+  let colors = ["#EBEDF0", "#9BE9A8", "#40C463", "#30A14E", "#216E39"];
+  let color;
+  for (var i = 0; i < 6; i++) {
+    color = colors[Math.floor(Math.random() * 4)];
+  }
+  return color;
+}
+
+function getRandomNumber() {}
