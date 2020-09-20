@@ -1,5 +1,6 @@
 let container = document.querySelector(".container");
 let total = document.querySelector(".amount");
+let totalContributions = 0;
 // Format Dates
 let date = new Date().toDateString();
 
@@ -37,18 +38,20 @@ grid.forEach((val) => {
   });
 });
 
+function add(a, b) {
+  a + b;
+}
+
 grid.forEach((cell) => {
   let count = 0;
   cell.addEventListener("click", (e) => {
     ++count;
+    ++totalContributions;
     let gridStyle = e.target;
-    //toolTipText.innerHTML = `${count} contributions ${date}`;
-
-    total.innerHTML = count++;
+    total.innerHTML = `${totalContributions}`;
     gridStyle.firstChild.innerHTML = `${count} contributions ${date}`;
 
     gridStyle.style.backgroundColor = getRandomColor();
-    console.log(gridStyle.style.backgroundColor);
     gridStyle.firstChild.style.backgroundColor = "black";
     /*if (
       gridStyle.className === "toolTipText" ||

@@ -187,3 +187,7 @@ body {
   background-position: 0 100%;
   border-bottom: solid 5px royalblue;
 }
+
+.amount {
+  font-size: 1.1rem;
+}
