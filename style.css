@@ -12,7 +12,6 @@ html {
 body {
   width: 460px;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
@@ -22,6 +21,10 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
     sans-serif, Apple Color Emoji, Segoe UI Emoji;
   overflow-y: auto;
+}
+
+.section {
+  margin: 0, auto;
 }
 
 .container {
