@@ -4,15 +4,15 @@
   box-sizing: border-box;
 }
 
+/* General Styling*/
 html,
 body {
-  height: 100%;
-  width: 100%;
   overflow-x: hidden;
-  margin: 0; /*Add this*/
+  margin: 0;
 }
 
 body {
+  font-size: 1rem;
   width: 500px;
   display: flex;
   justify-content: center;
@@ -30,6 +30,11 @@ body {
   padding: 20px;
 }
 
+.contribution-summary {
+  margin-bottom: 10px;
+}
+
+/* Styling grid container*/
 .container {
   height: 210px;
   line-height: 0;
@@ -46,6 +51,12 @@ body {
   width: 450px;
 }
 
+.month-container {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 2em;
+}
+
 .grid {
   width: 13px;
   height: 13px;
@@ -55,55 +66,22 @@ body {
   position: relative;
 }
 
-/* Tooltip container */
-.tooltip {
-  position: relative;
-  display: inline-block;
+.link a {
+  text-decoration: none;
 }
 
-/* Tooltip text */
-.tooltip .tooltiptext {
-  visibility: hidden;
-  width: 250px;
-  height: 40px;
-  text-align: center;
-  font-size: 12px;
-  background-color: black;
-  word-wrap: none;
-  color: #fff;
-  text-align: center;
-  padding: 20px 5px 5px 5px;
-  border-radius: 6px;
-  bottom: 100%;
-  left: 8%;
-  margin-left: -60px; /* Use half of the width (120/2 = 60), to center the tooltip */
-  margin-bottom: 25px;
-  position: absolute;
-  z-index: 1;
-  color: #fff;
+.link a:hover {
+  text-decoration: underline;
+  cursor: pointer;
 }
 
-/* Show the tooltip text when you mouse over the tooltip container */
-.tooltip:hover .tooltiptext {
-  visibility: visible;
-  opacity: 0.8;
-}
-
-.tooltip .tooltiptext::after {
-  content: " ";
-  position: absolute;
-  top: 100%; /* At the bottom of the tooltip */
-  left: 30%;
-  margin-left: -5px;
-  border-width: 6px;
-  border-style: solid;
-  border-color: black transparent transparent transparent;
-}
-
-.month-container {
+.bottom-container {
   display: flex;
-  justify-content: space-around;
-  margin-bottom: 2em;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  top: 420px;
+  margin-top: 0px;
 }
 
 .key-container {
@@ -146,37 +124,61 @@ body {
   background-color: #216e39;
 }
 
-.link a {
-  text-decoration: none;
+/* End of Styling grid container*/
+
+/* Styling Tooltip */
+.tooltip {
+  position: relative;
+  display: inline-block;
 }
 
-.link a:hover {
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-.bottom-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 250px;
+  height: 40px;
+  text-align: center;
+  font-size: 12px;
+  background-color: black;
+  word-wrap: none;
+  color: #fff;
+  text-align: center;
+  padding: 20px 5px 5px 5px;
+  border-radius: 6px;
+  bottom: 100%;
+  left: 8%;
+  margin-left: -60px; /* Use half of the width (120/2 = 60), to center the tooltip */
+  margin-bottom: 25px;
   position: absolute;
-  top: 420px;
-  margin-top: 10px;
+  z-index: 1;
+  color: #fff;
 }
 
-.contribution-summary {
-  margin-bottom: 10px;
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 0.8;
 }
+
+.tooltip .tooltiptext::after {
+  content: " ";
+  position: absolute;
+  top: 100%; /* At the bottom of the tooltip */
+  left: 30%;
+  margin-left: -5px;
+  border-width: 6px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+/*End of Tooltip styling*/
 
 /* Styling Social Links*/
-
 .social-links {
   display: flex;
   justify-content: space-around;
   width: 450px;
   position: absolute;
   top: 500px;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   transition: background-position 275ms ease;
 }
 
@@ -205,9 +207,7 @@ body {
 
 .social-links a:hover {
   background-position: 0 100%;
-  border-bottom: solid 5px royalblue;
+  border-bottom: solid 2px royalblue;
 }
 
-.amount {
-  font-size: 1.1rem;
-}
+/*End of social links styling*/

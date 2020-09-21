@@ -1,7 +1,8 @@
 let container = document.querySelector(".container");
 let total = document.querySelector(".amount");
 let totalContributions = 0;
-// Format Dates
+
+// Format Date
 let date = new Date().toDateString();
 
 // Make grids using the following function
@@ -22,9 +23,20 @@ let toolTipText = document.querySelectorAll(".tooltiptext");
 let number = document.querySelectorAll(".number");
 let grid = document.querySelectorAll(".grid");
 
+function getRandomColor() {
+  let colors = ["#EBEDF0", "#9BE9A8", "#40C463", "#30A14E", "#216E39"];
+  let color;
+  for (var i = 0; i < 6; i++) {
+    color = colors[Math.floor(Math.random() * 4)];
+  }
+  return color;
+}
+
 grid.forEach((val) => {
   val.style.backgroundColor = "#ddd";
   let count = 0;
+
+  //Mousever eventListiner to display tooltip text
   val.addEventListener("mouseover", (e) => {
     let item = e.target;
     count = "No";
@@ -38,38 +50,17 @@ grid.forEach((val) => {
   });
 });
 
-function add(a, b) {
-  a + b;
-}
-
 grid.forEach((cell) => {
   let count = 0;
+
+  //onclick eventListiner to add color to grid, increament the total and individual contribution values and display it in tooltip
   cell.addEventListener("click", (e) => {
     ++count;
     ++totalContributions;
     let gridStyle = e.target;
     total.innerHTML = `${totalContributions}`;
     gridStyle.firstChild.innerHTML = `${count} contributions on ${date}`;
-
     gridStyle.style.backgroundColor = getRandomColor();
     gridStyle.firstChild.style.backgroundColor = "black";
   });
 });
-
-let addContribution = (function () {
-  let colors = ["#EBEDF0", "#9BE9A8", "#40C463", "#30A14E", "#216E39"];
-  return function (i) {
-    return colors[i];
-  };
-})();
-
-function getRandomColor() {
-  let colors = ["#EBEDF0", "#9BE9A8", "#40C463", "#30A14E", "#216E39"];
-  let color;
-  for (var i = 0; i < 6; i++) {
-    color = colors[Math.floor(Math.random() * 4)];
-  }
-  return color;
-}
-
-function getRandomNumber() {}
