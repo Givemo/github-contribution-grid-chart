@@ -1,10 +1,21 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+}
+
 body {
+  width: 460px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  width: 1000px;
   top: 0;
   bottom: 0;
   margin: 0 auto;
@@ -14,7 +25,7 @@ body {
 }
 
 .container {
-  width: 850px;
+  height: 210px;
   line-height: 0;
   border: 1px solid #ddd;
   padding: 30px 15px 50px 15px;
@@ -24,10 +35,15 @@ body {
   margin: 0 auto;
 }
 
+.container,
+.bottom-container {
+  width: 450px;
+}
+
 .grid {
-  width: 11px;
-  height: 11px;
-  margin: 1.5px;
+  width: 13px;
+  height: 13px;
+  margin: 2px;
   border-radius: 2px;
   border: 1px solid #ddd;
   position: relative;
@@ -42,8 +58,8 @@ body {
 /* Tooltip text */
 .tooltip .tooltiptext {
   visibility: hidden;
-  width: 200px;
-  height: 20px;
+  width: 250px;
+  height: 40px;
   text-align: center;
   font-size: 12px;
   background-color: black;
@@ -82,7 +98,6 @@ body {
   display: flex;
   justify-content: space-around;
   margin-bottom: 2em;
-  width: 850px;
 }
 
 .key-container {
@@ -135,13 +150,12 @@ body {
 }
 
 .bottom-container {
-  width: 850px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: absolute;
-  top: 415px;
-  margin-top: 0px;
+  top: 420px;
+  margin-top: 10px;
 }
 
 .contribution-summary {
@@ -153,7 +167,7 @@ body {
 .social-links {
   display: flex;
   justify-content: space-around;
-  width: 850px;
+  width: 450px;
   position: absolute;
   top: 500px;
   font-size: 1.3rem;
@@ -164,7 +178,7 @@ body {
   text-decoration: none;
   position: relative;
   display: inline-block;
-  font-size: 1.3em;
+  font-size: 1.1em;
   font-weight: 400;
   color: rgb(151, 172, 235);
   overflow: hidden;

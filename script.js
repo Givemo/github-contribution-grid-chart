@@ -5,7 +5,7 @@ let totalContributions = 0;
 let date = new Date().toDateString();
 
 // Make grids using the following function
-function makegrid(rows = 53, columns = 7) {
+function makegrid(rows, columns) {
   container.style.setProperty("--grid-rows", rows);
   container.style.setProperty("--grid-columns", columns);
   for (c = 0; c < rows * columns; c += 1) {
@@ -15,12 +15,12 @@ function makegrid(rows = 53, columns = 7) {
     container.appendChild(grid).className = "grid tooltip";
   }
 }
-makegrid(7, 53);
+
+makegrid(7, 24);
 
 let toolTipText = document.querySelectorAll(".tooltiptext");
 let number = document.querySelectorAll(".number");
 let grid = document.querySelectorAll(".grid");
-toolTipText.innerHTML = "hghg";
 
 grid.forEach((val) => {
   val.style.backgroundColor = "#ddd";
@@ -49,30 +49,12 @@ grid.forEach((cell) => {
     ++totalContributions;
     let gridStyle = e.target;
     total.innerHTML = `${totalContributions}`;
-    gridStyle.firstChild.innerHTML = `${count} contributions ${date}`;
+    gridStyle.firstChild.innerHTML = `${count} contributions on ${date}`;
 
     gridStyle.style.backgroundColor = getRandomColor();
     gridStyle.firstChild.style.backgroundColor = "black";
-    /*if (
-      gridStyle.className === "toolTipText" ||
-      gridStyle.className === "number"
-    ) {
-      return;
-    } else if (value === 1) {
-      gridStyle.style.backgroundColor = gridObject.color;
-    } else if (value === 2) {
-      gridStyle.style.backgroundColor = "#9BE9A8";
-    } else if (value === 3) {
-      gridStyle.style.backgroundColor = "#40C463";
-    } else if (value === 4) {
-      gridStyle.style.backgroundColor = "#30A14E";
-    } else if (value >= 5) {
-      gridStyle.style.backgroundColor = "#216E39";
-    }*/
   });
 });
-
-//toolTipText.innerHTML = `${Number(value) + 1} contributions on ${date}`;
 
 let addContribution = (function () {
   let colors = ["#EBEDF0", "#9BE9A8", "#40C463", "#30A14E", "#216E39"];
