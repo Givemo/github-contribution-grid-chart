@@ -1,5 +1,5 @@
-# github-contribution-grid
+# github-contribution-grid/chart
 
-Have fun creating your desired github contribution chart and playing with around with it by simple clicks.
+Have fun creating your desired github contribution chart and playing around with it by simple clicks.
 
-Live app at https://givemo.github.io/github-contribution-grid/
+Live app <a href="https://givemo.github.io/github-contribution-grid/"><em>HERE</em></a>
